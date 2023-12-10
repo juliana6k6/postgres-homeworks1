@@ -10,7 +10,8 @@ order by freight DESC
 limit 10
 
 -- 3. фамилию, имя и телефон сотрудников, у которых в данных отсутствует регион (см таблицу employees)
-
+SELECT last_name, first_name, home_phone from employees
+where region is null
 
 -- 4. количество поставщиков (suppliers) в каждой из стран. Результат отсортировать по убыванию количества поставщиков в стране
 
