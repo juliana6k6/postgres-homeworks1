@@ -1,9 +1,13 @@
 -- Напишите запросы, которые выводят следующую информацию:
 -- 1. заказы, отправленные в города, заканчивающиеся на 'burg'. Вывести без повторений две колонки (город, страна) (см. таблица orders, колонки ship_city, ship_country)
-
+SELECT distinct ship_city, ship_country from orders
+where ship_city like '%burg'
 
 -- 2. из таблицы orders идентификатор заказа, идентификатор заказчика, вес и страну отгрузки. Заказ отгружен в страны, начинающиеся на 'P'. Результат отсортирован по весу (по убыванию). Вывести первые 10 записей.
-
+SELECT order_id, customer_id, freight, ship_country from orders
+where ship_country like 'P%'
+order by freight DESC
+limit 10
 
 -- 3. фамилию, имя и телефон сотрудников, у которых в данных отсутствует регион (см таблицу employees)
 
