@@ -35,7 +35,7 @@ with psycopg2.connect(host="localhost", database="north", user="postgres", passw
                 ship_city = row["ship_city"]
                 cur.execute("INSERT INTO orders VALUES (%s, %s, %s, %s, %s)",
                             (order_id, customer_id, employee_id, order_date, ship_city))
-
+conn.commit()
 conn.close()
 
 
