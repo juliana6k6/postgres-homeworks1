@@ -23,7 +23,10 @@ and category_name in ('Dairy Products', 'Condiments')
 order by units_in_stock
 
 -- 3. Список компаний заказчиков (company_name из табл customers), не сделавших ни одного заказа
-
+select company_name from customers
+where customer_id not in (select customer_id from orders)
 
 -- 4. уникальные названия продуктов, которых заказано ровно 10 единиц (количество заказанных единиц см в колонке quantity табл order_details)
 -- Этот запрос написать именно с использованием подзапроса.
+select distinct product_name from products
+where product_id in (select product_id from order_details where order_details.quantity = 10)
